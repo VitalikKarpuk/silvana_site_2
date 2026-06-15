@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 type NavItem = {
   label: string;
@@ -72,18 +73,9 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
-        {/* Wordmark with a minimal line mark */}
-        <a href="#top" className="flex items-center gap-2.5" aria-label="Silvana home">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-            <path
-              d="M9 1.5 16 9l-7 7.5L2 9l7-7.5Z"
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinejoin="round"
-            />
-            <path d="M9 5.5 12.5 9 9 12.5 5.5 9 9 5.5Z" fill="var(--color-accent)" />
-          </svg>
-          <span className="display text-lg tracking-tight">Silvana</span>
+        {/* Silvana logo */}
+        <a href="#top" className="flex items-center" aria-label="Silvana home">
+          <Logo className="h-6 w-auto text-fg" />
         </a>
 
         {/* Desktop nav */}

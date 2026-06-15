@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Reveal from "./ui/Reveal";
-import Media from "./ui/Media";
 
 type Row = {
   company: string;
@@ -33,8 +32,32 @@ export default function Institutions() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="border-t border-line bg-surface/40">
-      <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+    <section className="relative overflow-hidden border-t border-line">
+      {/* Background image */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/sections/institutions.png"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover object-right"
+      />
+      {/* Scrim — dark on the left for copy legibility, fades to reveal the image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(8,9,10,0.96) 0%, rgba(8,9,10,0.86) 42%, rgba(8,9,10,0.55) 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, var(--color-bg), transparent 14%, transparent 86%, var(--color-bg))",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-24 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow mb-3 block">
@@ -53,18 +76,10 @@ export default function Institutions() {
               Confidentiality, deterministic execution, and compliance-ready proofs —
               infrastructure that fits how institutions actually operate.
             </p>
-            <div className="mt-8">
-              <Media
-                src="/images/sections/institutions.png"
-                ratio="16 / 11"
-                label="Zero-knowledge proof of activity"
-                className="rounded-2xl border border-line"
-              />
-            </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="panel divide-y divide-line overflow-hidden rounded-2xl">
+            <div className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-bg/75 backdrop-blur-md">
               {ROWS.map((row, i) => {
                 const isOpen = open === i;
                 return (

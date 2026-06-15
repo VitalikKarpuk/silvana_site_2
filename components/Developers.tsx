@@ -13,8 +13,8 @@ const STORY_CARDS = [
 function CodeBlock() {
   const [tab, setTab] = useState<"rust" | "ts">("rust");
   return (
-    <div className="panel overflow-hidden rounded-2xl">
-      <div className="flex items-center gap-1 border-b border-line bg-bg/40 p-2">
+    <div className="overflow-hidden rounded-2xl border border-line bg-bg/80 backdrop-blur-md">
+      <div className="flex items-center gap-1 border-b border-line bg-white/3 p-2">
         {(["rust", "ts"] as const).map((t) => (
           <button
             key={t}
@@ -48,8 +48,8 @@ function CodeBlock() {
 export default function Developers() {
   return (
     <section id="developers" className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
-      <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-        <Reveal className="lg:order-2">
+      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
           <p className="eyebrow mb-3 block">
             Silvana for developers
           </p>
@@ -69,15 +69,20 @@ export default function Developers() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="lg:order-1">
-          <div className="flex flex-col gap-4">
+        {/* Product shot — framed image with the code block floating over its corner */}
+        <Reveal delay={0.1} className="lg:mb-12">
+          <div className="relative">
             <Media
               src="/images/sections/developers.png"
-              ratio="16 / 11"
+              ratio="4 / 3"
               label="A Silvana agent, coding"
               className="rounded-2xl border border-line"
             />
-            <CodeBlock />
+            <div className="mt-4 lg:absolute lg:-bottom-10 lg:-left-8 lg:mt-0 lg:w-[82%]">
+              <div className="shadow-2xl shadow-black/50">
+                <CodeBlock />
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>

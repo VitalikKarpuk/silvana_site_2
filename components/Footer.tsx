@@ -1,5 +1,7 @@
 "use client";
 
+import Logo from "./Logo";
+
 const COLUMNS = [
   {
     title: "Products",
@@ -50,11 +52,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-6 border-t border-line pt-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-center gap-2.5">
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-muted">
-              <path d="M9 1.5 16 9l-7 7.5L2 9l7-7.5Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="M9 5.5 12.5 9 9 12.5 5.5 9 9 5.5Z" fill="var(--color-accent)" />
-            </svg>
+          <div className="flex items-center gap-3">
+            <Logo className="h-5 w-auto shrink-0 text-fg" />
             <p className="text-xs text-muted">
               © Silvana · Agentic DeFi on Canton. Private execution. Autonomous
               agents. Atomic settlement.
